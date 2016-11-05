@@ -1,8 +1,10 @@
 <h1>Emprego Já</h1>
 
 <% @jobs.each do |job| %>
-<h1><%= link_to job.title, job_path(job.id) %></h1>
-<%= job.company %>
-<%= job.location %>
-
+  <h1><%= link_to job.title, job_path(job.id) %></h1>
+  <%= job.company %>
+  <%= job.location %>
+  <% if job.featured? %>
+    <strong>Destaque</strong>
+  <% end %>
 <% end %>
