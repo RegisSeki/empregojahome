@@ -17,6 +17,21 @@ class JobsController < ApplicationController
     end
   end
   
+  def edit
+    @job = Job.find(params[:id])
+  end
+  
+  def update
+    @job = Job.find(params[:id])
+    @job.update(jobs_params)
+    if @job.save
+      redirect_to job_url(@job)
+    else
+      flash[:error] = "Não foi possível atualizar a vaga"
+      render :edit
+    end
+  end
+  
   private
 
   def jobs_params
