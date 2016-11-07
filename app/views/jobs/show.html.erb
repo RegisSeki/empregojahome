@@ -1,9 +1,9 @@
-<h1><%=@job.title %></h1>
-<%=@job.category %>
-<%=@job.company %>
-<%=@job.description %>
-<%=@job.location %>
-<% if @job.featured? %>
+<h1><%= @job.title %></h1>
+<%= @job.location %>
+<%= @job.category %>
+<%= @job.company.name %>
+<%= @job.description %>
+<%  if @job.featured? %>
   <strong>Destaque</strong>
 <% end %>
 
